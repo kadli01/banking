@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Splendex Bank</title>
+	<link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+<body ng-app="bankApp">
+	<div class="container">
+		<h2>Banking homework</h2>
+
+		<nav class="nav nav-pills">
+			<a class="nav-item nav-link active" href="#/home">Deposit/Withdraw</a>
+			<a class="nav-item nav-link" href="#/transfer">Transfer</a>
+			<a class="nav-item nav-link" href="#/history">History</a>
+		</nav>
+		
+		<div ng-view class="view"></div>
+
+	</div>
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/underscore/underscore-min.js"></script>
+	<script src="assets/libs/bootstrap/bootstrap.min.js"></script>
+
+	<script src="app.js"></script>
+
+	<script src="common/services/users.service.js"></script>
+	
+	<script src="components/transfer/checkEmail.directive.js"></script>
+
+	<script src="components/deposit/deposit.controller.js"></script>
+	<script src="components/transfer/transfer.controller.js"></script>
+	<script src="components/history/history.controller.js"></script>
+
+
+
+</body>
+</html>

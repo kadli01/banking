@@ -1,0 +1,25 @@
+<!-- TODO: filter -->
+<div class="row">
+	<div class="col-md-2"><h3>Date</h3></div>
+	<div class="col-md-2"><h3>Type</h3></div>
+	<div class="col-md-2"><h3>Amount</h3></div>
+	<div class="col-md-3"><h3>From</h3></div>
+	<div class="col-md-3"><h3>To</h3></div>
+</div>
+<div class="row" ng-repeat="history in hc.loggedInUser.history track by $index">
+	<div class="col-md-2">
+		Date
+	</div>
+	<div class="col-md-2">
+		{{history.type}}
+	</div>
+	<div class="col-md-2">
+		{{history.amount}}
+	</div>
+	<div class="col-md-3">
+		{{history.from}}
+	</div>	
+	<div class="col-md-3">
+		{{history.to}}
+	</div>	
+</div>

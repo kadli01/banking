@@ -1,0 +1,28 @@
+{{tc.loggedInUser.user.balance}}
+<form name="transferForm" novalidate>
+	<div class="form-group">
+		<label>Amount
+			<input type="number" name="amount" class="form-control" ng-model="tc.amount" ng-min="1" required max="{{tc.loggedInUser.balance}}">
+		</label>
+		<div role="alert">
+			<span class="error" ng-show="transferForm.amount.$error.required && transferForm.amount.$touched">
+			  Required!</span>
+			<span class="error" ng-show="transferForm.amount.$error.min">
+			  Must be positive number!</span>
+			  <span class="error" ng-show="transferForm.amount.$error.max">
+			  Balance too low!</span>
+		  </div>
+	</div>
+	<div class="form-group">
+		<label>Transfer To
+			<input type="email" name="to" class="form-control" ng-model="tc.to" required placeholder="e-mail address" check-email ng-model-options="{debounce: 200}">
+		</label>
+		<div role="alert">
+			<span class="error" ng-show="transferForm.to.$error.required && transferForm.to.$touched">Required!</span>
+			<span class="error" ng-show="transferForm.to.$error.email && transferForm.to.$touched">Incorrect e-mail format!</span>
+			<span class="error" ng-show="transferForm.to.$error.checkEmail && transferForm.to.$touched">Can't transfer to yourserlf!</span>
+		  </div>
+	</div>
+
+	<button class="btn btn-success" ng-click="tc.transfer()" ng-disabled="transferForm.$invalid">Transfer</button>
+</form>
